@@ -133,6 +133,9 @@ function renderSites(sites) {
             });
         }
     });
+    
+    // 数据渲染完成后检查是否有搜索查询
+    checkForSearchQuery();
 }
 
 // 创建网站卡片
@@ -160,13 +163,14 @@ function createWebCard(site) {
 window.addEventListener('DOMContentLoaded', function () {
     // 从服务器或localStorage加载网站数据
     loadSites();
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const web_name = urlParams.get('web_name');
+});
+
+// 执行搜索功能
+function performSearch(web_name) {
     if (web_name) {
         const normalizedWebName = web_name.toLowerCase();
         // 查找包含指定名称的web-card
-        const webCards = document.querySelectorAll('.web-card h3');
+        const webCards = document.querySelectorAll('.web-card');
         let targetCard = null;
 
         webCards.forEach(card => {
@@ -177,12 +181,25 @@ window.addEventListener('DOMContentLoaded', function () {
 
         if (targetCard) {
             targetCard.scrollIntoView({ behavior: 'smooth' });
+            // 高亮显示匹配的卡片
+            targetCard.style.backgroundColor = '#fff3cd';
+            setTimeout(() => {
+                targetCard.style.backgroundColor = '';
+            }, 2000);
         } else {
             alert(`未找到包含"${web_name}"的网站信息`);
-            window.location.href = 'index.html';
         }
     }
-});
+}
+
+// 检查URL参数并执行搜索
+function checkForSearchQuery() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const web_name = urlParams.get('web_name');
+    if (web_name) {
+        performSearch(web_name);
+    }
+}
 
 // 滚动到顶部功能
 function scrollToTop() {

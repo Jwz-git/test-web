@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li class="nav-item active" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
                 <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
                 <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
                 <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
@@ -26,7 +26,7 @@
         <section class="search-container">
             <!-- <button class="btn" onclick="clearLocalStorage()">清空localStorage</button> -->
             <h1>AI网站导航搜索</h1>
-            <input type="text" placeholder="搜索AI相关网站..." onkeydown="if(event.keyCode==13) searchSites()">
+            <input type="text" placeholder="搜索AI相关网站...例如：ChatGPT" onkeydown="if(event.keyCode==13) searchSites()">
             <button class="btn" onclick="searchSites()">搜索</button>
         </section>
 
@@ -40,23 +40,23 @@
 
         <!-- 文档链接区域 -->
         <div class="docs-container">
-            <h2>项目文档</h2>
-            <div class="docs-links">
-                <ul>
-                    <li><a href="doc/app.md" class="doc-link">app.md</a></li>
-                    <li><a href="doc/css.md" class="doc-link">css.md</a></li>
-                    <li><a href="doc/html.md" class="doc-link">html.md</a></li>
-                    <li><a href="doc/javascript.md" class="doc-link">javascript.md</a></li>
-                    <li><a href="doc/plan.md" class="doc-link">plan.md</a></li>
-                    <li><a href="doc/other.md" class="doc-link">other.md</a></li>
+            <h2 class="docs-container__title">项目文档</h2>
+            <div class="docs-container__links">
+                <ul class="docs-container__links-list">
+                    <li class="docs-container__links-list-item"><a href="doc/app.md" class="docs-container__links-list-item-link">app.md</a></li>
+                    <li class="docs-container__links-list-item"><a href="doc/css.md" class="docs-container__links-list-item-link">css.md</a></li>
+                    <li class="docs-container__links-list-item"><a href="doc/html.md" class="docs-container__links-list-item-link">html.md</a></li>
+                    <li class="docs-container__links-list-item"><a href="doc/javascript.md" class="docs-container__links-list-item-link">javascript.md</a></li>
+                    <li class="docs-container__links-list-item"><a href="doc/plan.md" class="docs-container__links-list-item-link">plan.md</a></li>
+                    <li class="docs-container__links-list-item"><a href="doc/other.md" class="docs-container__links-list-item-link">other.md</a></li>
                 </ul>
-            </div>
+            </div>            
+            <!-- <button class="btn" onclick="clearLocalStorage()">清空localStorage</button> -->
         </div>
     </main>
 
 </body>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="js/common.js"></script>
 <script src="js/index.js"></script>
 

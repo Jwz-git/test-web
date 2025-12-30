@@ -5,19 +5,44 @@ function updateUserNav() {
         if (!userNav) return;
         
         const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        const currentPage = window.location.pathname.split('/').pop();
+        
         if (currentUser) {
             userNav.innerHTML = `
                 <span style="color:white; margin-right:20px;">欢迎, ${currentUser.username}</span>
                 <div class="nav-item" onclick="logout()">登出</div>
             `;
         } else {
+            const isLoginPage = currentPage === 'login_register.html';
             userNav.innerHTML = `
-                <div class="nav-item" onclick="window.location.href='login_register.html'">登录/注册</div>
+                <div class="nav-item ${isLoginPage ? 'active' : ''}" onclick="window.location.href='login_register.html'">登录/注册</div>
             `;
         }
     } catch (error) {
         // 忽略任何错误，避免影响页面渲染
         console.error('Error in updateUserNav:', error);
+    }
+}
+
+// 更新导航项活跃状态
+function updateNavActiveState() {
+    try {
+        const navItems = document.querySelectorAll('.nav-item');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        navItems.forEach(item => {
+            const onclickAttr = item.getAttribute('onclick');
+            if (onclickAttr) {
+                const targetPage = onclickAttr.match(/window\.location\.href='([^']+)'/);
+                if (targetPage && targetPage[1] === currentPage) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error in updateNavActiveState:', error);
     }
 }
 
@@ -31,7 +56,10 @@ function logout() {
 }
 
 // 页面加载时更新导航栏
-window.addEventListener('DOMContentLoaded', updateUserNav);
+window.addEventListener('DOMContentLoaded', () => {
+    updateUserNav();
+    updateNavActiveState();
+});
 
 // 滚动到指定公司位置
 function scrollToDes(companyId) {

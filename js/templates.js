@@ -58,14 +58,6 @@ function getDetailPageTemplate(siteData) {
     `;
 }
 
-// 模板渲染函数
-function renderTemplate(template, container) {
-    const target = document.querySelector(container);
-    if (target) {
-        target.innerHTML = template;
-    }
-}
-
 // 完整页面渲染函数
 function renderPage(template) {
     document.body.innerHTML = template;

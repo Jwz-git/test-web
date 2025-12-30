@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    margin: 20px;
+}
+.site-header {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.site-header h1 {
+    margin-top: 0;
+}
+.meta-info {
+    color: #666;
+    margin-bottom: 15px;
+}
+.meta-info span {
+    margin-right: 20px;
+}
+.site-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+.site-content h2 {
+    margin-top: 0;
+}
+.btn-to-web {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    background-color: #43759e;
+    color: white;
+}
+.btn-to-web:hover {
+    opacity: 0.9;
+}
+.api-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    background-color: #43759e;
+    color: white;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+.required {
+    color: #e53e3e;
+}
+

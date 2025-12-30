@@ -1,0 +1,85 @@
+// 搜索功能
+function searchSites() {
+    const web_name = document.querySelector('.search-container input').value.trim();
+    if (web_name) {
+        window.location.href = `list.html?web_name=${encodeURIComponent(web_name)}`;
+    } else {
+        alert('请输入要搜索的网站名称');
+    }
+}
+
+function clearLocalStorage() {
+    localStorage.clear();
+    alert('localStorage已清空');
+}
+
+const newsImages = [
+    "./images/index/Grok.png",
+    "./images/index/Gemini3.png",
+    "./images/index/Claude Opus4.5.png",
+    "./images/index/ChatGPT-4o.png",
+    "./images/index/Qwen.png",
+    "./images/index/Trae.png",
+    "./images/index/AIChip.png",
+    "./images/index/AI-llya.png",
+    "./images/index/Anthropic.png",
+    "./images/index/AI-glasses.png",
+];
+
+const newsTexts = [
+    "马斯克宣布 AI 模型 Grok 5 明年将挑战《英雄联盟》顶级人类战队",
+    "Google推出Gemini3模型，在在众多方面表现优异",
+    "Claude Opus4.5即将发布，目标对标GPT-5.1",
+    "OpenAI通知：GPT-4o API明年2月停服，开发者有三个月迁移期",
+    "阿里千问App一周下载破千万，成AI应用黑马，开源模型打底撑场面",
+    "TRAE中国版SOLO上线，免费AI编程团队助力开发者",
+    "AI芯片开启第二战场：谷歌TPU引爆博通股价 硅谷巨头集体\"造铲\"",
+    "AI大神llya发声：超级AI靠的不是规模，而是新研究",
+    "Anthropic警示AI通过作弊学习会变得\"相当邪恶\"",
+    "理想汽车将发布 AI 眼镜",
+];
+
+// 显示新闻
+function displayNews(newsItems) {
+    const container = document.getElementById('newsContainer');
+    container.innerHTML = '';
+
+    newsItems.forEach(item => {
+        const newsCard = document.createElement('div');
+        newsCard.className = 'news-card';
+
+        newsCard.innerHTML = `
+            <img src="${item.image}" alt="AI资讯图片">
+            <p>${item.text}</p>
+        `;
+
+        container.appendChild(newsCard);
+    });
+}
+
+// 随机获取新闻项
+function getRandomNews(count = 4) {
+    // 创建索引数组并打乱顺序
+    const indices = Array.from({ length: newsImages.length }, (_, i) => i);
+    indices.sort(() => Math.random() - 0.5);
+
+    // 选取前count个元素
+    const selectedIndices = indices.slice(0, count);
+
+    // 返回选中的新闻项
+    return selectedIndices.map(index => ({
+        image: newsImages[index],
+        text: newsTexts[index]
+    }));
+}
+
+// 刷新新闻
+function refreshNews() {
+    const randomNews = getRandomNews(4);
+    displayNews(randomNews);
+}
+
+// 显示初始新闻
+window.addEventListener('DOMContentLoaded', () => {
+    refreshNews();
+});

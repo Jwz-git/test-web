@@ -1,0 +1,35 @@
+{
+  "name": "24050417",
+  "version": "1.0.0",
+  "description": "## 网站概述 收集多家公司旗下的AI产品，提供相关链接、介绍或使用教程，帮助用户快速找到所需的AI资源。",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "http-server -p 3000 -o",
+    "sass:compile": "sass scss:css",
+    "sass:watch": "sass --watch scss:css",
+    "minify-css": "mkdir css\\min 2>nul && for %f in (css\\*.css) do cleancss -o css\\min\\%~nf.min.css %f",
+    "minify-js": "mkdir js\\min 2>nul && for %f in (js\\*.js) do uglifyjs -o js\\min\\%~nf.min.js %f",
+    "build": "npm-run-all sass:compile minify-css minify-js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/hdu2025/24050417.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.97.1",
+    "uglify-js": "^3.19.3"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI网站导航 - 帮助</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
+                <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
+                <li class="nav-item active" onclick="window.location.href='help.html'">帮助</li>
+                <li id="userNav" style="float:right;"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>AI网站导航帮助中心</h1>
+        
+        <section class="help-section">
+            <h2>功能说明</h2>
+            <div class="feature-grid">
+                <article class="feature-item">
+                    <h3><i class="fas fa-search"></i> 网站搜索</h3>
+                    <p>在首页搜索框中输入关键词，可快速查找相关AI网站，支持回车键快捷搜索</p>
+                </article>
+                <article class="feature-item">
+                    <h3><i class="fas fa-th-large"></i> 分类浏览</h3>
+                    <p>按公司分类浏览AI网站，支持通过左侧导航快速定位和滚动到对应公司</p>
+                </article>
+                <article class="feature-item">
+                    <h3><i class="fas fa-cog"></i> 网站管理</h3>
+                    <p>登录用户可添加、编辑、删除网站信息，包括网站名称、公司、AI类型、描述、链接等</p>
+                </article>
+                <article class="feature-item">
+                    <h3><i class="fas fa-newspaper"></i> 最新AI资讯</h3>
+                    <p>首页展示最新AI资讯，支持点击"换一换"按钮刷新获取新内容</p>
+                </article>
+                <article class="feature-item">
+                    <h3><i class="fas fa-info-circle"></i> 网站详情</h3>
+                    <p>查看网站详细信息，包括功能特性、所属公司、AI类型等</p>
+                </article>
+
+            </div>
+        </section>
+        
+        <section class="help-section">
+            <h2>使用指南</h2>
+            
+            <article class="guide-item">
+                <h3><i class="fas fa-question-circle"></i> 如何搜索网站？</h3>
+                <ol>
+                    <li>在首页顶部搜索框中输入关键词</li>
+                    <li>点击搜索按钮或按回车键</li>
+                    <li>系统会自动跳转到列表页并显示匹配结果</li>
+                </ol>
+            </article>
+            
+            <article class="guide-item">
+                <h3><i class="fas fa-plus-circle"></i> 如何添加网站？</h3>
+                <ol>
+                    <li>点击顶部导航栏的"添加网站详情"按钮</li>
+                    <li>填写网站信息表单，包括：
+                        <ul>
+                            <li>网站名称（必填）</li>
+                            <li>所属公司（必填，支持选择OpenAI、Google、Microsoft、字节跳动、阿里巴巴）</li>
+                            <li>AI类型（必填，支持选择对话式、生成式、分析式、其他）</li>
+                            <li>网站简介（必填）</li>
+                            <li>网站链接（必填）</li>
+                            <li>网站图标（可选）</li>
+                            <li>功能特性（可选，支持选择多语言、API、免费、移动端）</li>
+                        </ul>
+                    </li>
+                    <li>点击"保存"按钮完成添加</li>
+                </ol>
+            </article>
+            
+            <article class="guide-item">
+                <h3><i class="fas fa-edit"></i> 如何编辑或删除网站？</h3>
+                <ol>
+                    <li>在网站列表页找到要操作的网站卡片</li>
+                    <li>点击"编辑"按钮修改信息，或点击"删除"按钮移除网站</li>
+                    <li>编辑完成后点击"保存"按钮更新信息</li>
+                </ol>
+            </article>
+            
+            <article class="guide-item">
+                <h3><i class="fas fa-compass"></i> 如何使用公司导航？</h3>
+                <ol>
+                    <li>在列表页左侧点击公司名称</li>
+                    <li>页面会平滑滚动到对应公司的网站列表</li>
+                    <li>滚动到底部可点击"回到顶部"按钮快速返回页面顶部</li>
+                </ol>
+            </article>
+            
+            <article class="guide-item">
+                <h3><i class="fas fa-eye"></i> 如何查看网站详情？</h3>
+                <ol>
+                    <li>在网站列表页找到要查看的网站卡片</li>
+                    <li>点击网站卡片上的"网站介绍"按钮</li>
+                    <li>进入详情页查看完整的网站信息</li>
+                </ol>
+            </article>
+        </section>
+        
+        <section class="help-section">
+            <h2>常见问题</h2>
+            <div class="faq-list">
+                <article class="faq-item">
+                    <h3><i class="fas fa-eraser"></i> Q: 如何清空本地数据？</h3>
+                    <p>A: 目前可以通过浏览器开发者工具手动清空LocalStorage数据</p>
+                </article>
+                <article class="faq-item">
+                    <h3><i class="fas fa-building"></i> Q: 支持哪些公司的网站添加？</h3>
+                    <p>A: 目前支持添加OpenAI、Google、Microsoft、字节跳动、阿里巴巴等公司的AI网站</p>
+                </article>
+                <article class="faq-item">
+                    <h3><i class="fas fa-plus-square"></i> Q: 如何添加新的公司选项？</h3>
+                    <p>A: 需要修改form.html中的公司下拉列表和list.html中的公司导航</p>
+                </article>
+                <article class="faq-item">
+                    <h3><i class="fas fa-newspaper"></i> Q: 新闻内容是如何获取的？</h3>
+                    <p>A: 新闻内容通过JavaScript动态生成，支持点击"换一换"按钮刷新</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/common.js"></script>
+
+</html>

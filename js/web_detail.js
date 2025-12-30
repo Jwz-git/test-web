@@ -1,0 +1,68 @@
+// ChatGPT站点数据
+const CHATGPT_DATA = {
+    name: "ChatGPT",
+    company: "OpenAI",
+    category: "对话AI",
+    description: "ChatGPT是OpenAI开发的一款强大的对话式AI模型，能够理解并生成自然语言，可用于问答、创作、代码辅助等多种场景。",
+    url: "https://www.chatgpt.com",
+    apiKeyHint: "sk-开头"
+};
+
+const API_CONFIG = {
+    endpoint: "https://api.openai.com/v1/chat/completions",
+    model: "gpt-5.2"
+};
+
+// 页面初始化，使用模板渲染
+function initPage() {
+    const template = getDetailPageTemplate(CHATGPT_DATA);
+    renderPage(template);
+}
+
+async function callChatGPTAPI() {
+    const apiKeyInput = document.getElementById("apiKey");
+    const promptInput = document.getElementById("prompt");
+    const responseOutput = document.getElementById("apiResponse");
+
+    const apiKey = apiKeyInput.value.trim();
+    const userPrompt = promptInput.value.trim();
+
+    if (!apiKey) {
+        alert("请输入API密钥");
+        return;
+    }
+    if (!userPrompt) {
+        alert("请输入内容");
+        return;
+    }
+
+    try {
+        responseOutput.textContent = "正在请求API...";
+
+        const response = await fetch(API_CONFIG.endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: API_CONFIG.model,
+                messages: [{ "role": "user", "content": userPrompt }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API请求失败: ${response.status} - ${await response.text()}`);
+        }
+
+        const result = await response.json();
+        const apiReply = result.choices?.[0]?.message?.content || "未获取到有效响应";
+        responseOutput.textContent = apiReply;
+
+    } catch (error) {
+        responseOutput.textContent = `请求出错: ${error.message}`;
+    }
+}
+
+// 页面加载时初始化
+window.addEventListener('DOMContentLoaded', initPage);

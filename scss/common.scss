@@ -1,0 +1,407 @@
+// 变量定义
+$primary-color: #333;
+$secondary-color: #555;
+$accent-color: #43759e;
+$success-color: #4CAF50;
+$danger-color: red;
+$background-color: #f5f5f5;
+$text-color: #333;
+$white-color: white;
+
+// 字体设置
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei',
+    sans-serif;
+
+// 尺寸变量
+$border-radius: 0.25rem;
+$transition-speed: 0.3s ease;
+
+// 响应式断点
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 1024px
+);
+
+// 混合宏：响应式断点
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// 混合宏：按钮样式
+@mixin btn-style($bg-color: $accent-color, $text-color: $white-color) {
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  border: none;
+  background-color: $bg-color;
+  color: $text-color;
+  transition: opacity $transition-speed;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// 基础重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"], [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+// 导航栏样式
+.navbar {
+  background-color: $primary-color;
+  padding: 0.625rem 0.9375rem;
+  position: relative;
+  
+  // 导航项嵌套样式
+  .nav-item {
+    color: $white-color;
+    cursor: pointer;
+    margin-right: 0.625rem;
+    font-size: 0.875rem;
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: $border-radius;
+    transition: background-color $transition-speed;
+    
+    &:hover,
+    &.active {
+      background-color: $secondary-color;
+    }
+    
+    &.active {
+      font-weight: bold;
+    }
+  }
+  
+  // 响应式设计
+  @include respond-to('md') {
+    padding: 0.9375rem 1.25rem;
+    
+    .nav-item {
+      margin-right: 1.25rem;
+      font-size: 1.125rem;
+      padding: 0.3125rem 0.625rem;
+    }
+  }
+  
+  @include respond-to('lg') {
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+// 按钮样式
+.btn {
+  @include btn-style;
+}
+
+// 容器样式
+.container {
+  margin: 1.25rem;
+  padding: 1.25rem;
+  background-color: $white-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+// 标题样式
+h1, h2, h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  line-height: 1.3;
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+// 表单样式
+.form-group {
+  margin-bottom: 1.25rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $secondary-color;
+    font-size: 1rem;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    transition: border-color $transition-speed;
+    
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+    }
+  }
+}
+
+// 必填项样式
+.required {
+  color: $danger-color;
+}
+
+// 保存通知样式
+.save-notification {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  background-color: $success-color;
+  color: $white-color;
+  padding: 0.3125rem 0.625rem;
+  border-radius: $border-radius;
+  font-size: 0.875rem;
+  transition: opacity $transition-speed;
+}
+
+// 文档容器样式
+.docs-container {
+  margin: 0.625rem;
+  padding: 0.9375rem;
+  background-color: $white-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 0.625rem;
+    font-size: 1.5rem;
+  }
+  
+  // 文档链接样式
+  .docs-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        display: block;
+        
+        .doc-link {
+          display: block;
+          padding: 0.5rem 0.75rem;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background-size: 200% 200%;
+          color: $white-color;
+          text-decoration: none;
+          border-radius: $border-radius;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          font-size: 0.875rem;
+          text-align: center;
+          animation: gradientShift 3s ease infinite;
+          
+          &:hover {
+            background-position: 100% 0;
+            color: $white-color;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+    }
+    
+    // 响应式设计
+    @include respond-to('md') {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.9375rem;
+      
+      ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.9375rem;
+        
+        li {
+          display: inline-flex;
+          
+          .doc-link {
+            display: inline-block;
+            padding: 0.625rem 0.9375rem;
+            font-size: 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
+  // 响应式设计
+  @include respond-to('md') {
+    margin: 1.25rem;
+    padding: 1.25rem;
+    
+    h2 {
+      margin-bottom: 0.9375rem;
+      font-size: 1.75rem;
+    }
+  }
+  
+  @include respond-to('lg') {
+    padding: 1.875rem;
+  }
+}
+
+// 渐变动画
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

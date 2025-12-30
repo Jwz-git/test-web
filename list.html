@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI网站导航 - 列表页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item active" onclick="window.location.href='list.html'">网站列表</li>
+                <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
+                <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
+                <li id="userNav" style="float:right;"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- 公司列表+导航 -->
+        <aside class="company-list">
+            <h2>公司导航</h2>
+            <nav>
+                <ul>
+                    <li class="company-item" onclick="scrollToDes('openai')">OpenAI</li>
+                    <li class="company-item" onclick="scrollToDes('google')">Google</li>
+                    <li class="company-item" onclick="scrollToDes('microsoft')">Microsoft</li>
+                    <li class="company-item" onclick="scrollToDes('zijietiaodong')">字节跳动</li>
+                    <li class="company-item" onclick="scrollToDes('alibaba')">阿里巴巴</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="sites-list" id="sitesContainer">
+
+            <article class="company-section" id="openai">
+                <h2>OpenAI</h2>
+            </article>
+
+            <article class="company-section" id="google">
+                <h2>Google</h2>
+            </article>
+
+            <article class="company-section" id="microsoft">
+                <h2>Microsoft</h2>
+            </article>
+
+            <article class="company-section" id="zijietiaodong">
+                <h2>字节跳动</h2>
+            </article>
+
+            <article class="company-section" id="alibaba">
+                <h2>阿里巴巴</h2>
+            </article>
+
+            <button id="backToTop" class="back-to-top-btn" onclick="scrollToTop()">
+                ↑
+            </button>
+        </section>
+    </main>
+
+</body>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/list.js"></script>
+
+</html>

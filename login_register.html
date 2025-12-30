@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI网站导航 - 登录/注册</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login_register.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
+                <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
+                <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
+                <li class="nav-item active" onclick="window.location.href='login_register.html'" style="float:right;">
+                    登录/注册</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="wrapper">
+        <section class="card-switch">
+            <div class="switch">
+                <nav class="auth-buttons">
+                    <button class="auth-btn active" id="loginBtn" onclick="switchToLogin()">登录</button>
+                    <button class="auth-btn" id="registerBtn" onclick="switchToRegister()">注册</button>
+                </nav>
+                <span class="card-side"></span>
+                <div class="flip-card__inner" id="flipCardInner">
+                    <article class="flip-card__front">
+                        <h1 class="title">登录(先注册)</h1>
+                        <form class="flip-card__form" action="" onsubmit="handleLogin(); return false;">
+                            <section class="form-group">
+                                <input class="flip-card__input" name="email" placeholder="邮箱" type="email"
+                                    id="loginEmail" value="111@qq.com" required>
+                                <div class="error-message" id="loginEmailError" style="display: none;"></div>
+                            </section>
+                            <section class="form-group">
+                                <input class="flip-card__input" name="password" placeholder="密码" type="password"
+                                    id="loginPassword" value="1111aaaa" required>
+                                <div class="error-message" id="loginPasswordError" style="display: none;"></div>
+                            </section>
+                            <section class="form-actions">
+                                <button class="flip-card__btn" type="submit">登录</button>
+                            </section>
+                        </form>
+                    </article>
+                    <article class="flip-card__back">
+                        <h1 class="title">注册</h1>
+                        <form class="flip-card__form" action="" onsubmit="handleRegister(); return false;">
+                            <section class="form-group">
+                                <input class="flip-card__input" placeholder="用户名" type="text" id="regUsername"
+                                    value="123" required>
+                                <div class="error-message" id="regUsernameError" style="display: none;"></div>
+                            </section>
+                            <section class="form-group">
+                                <input class="flip-card__input" placeholder="邮箱" type="email" id="regEmail"
+                                    value="111@qq.com" required>
+                                <div class="error-message" id="regEmailError" style="display: none;"></div>
+                            </section>
+                            <section class="form-group">
+                                <input class="flip-card__input" placeholder="密码" type="password" id="regPassword"
+                                    value="1111aaaa" required>
+                                <div class="error-message" id="regPasswordError" style="display: none;"></div>
+                            </section>
+                            <section class="form-group">
+                                <input class="flip-card__input" placeholder="确认密码" type="password"
+                                    id="regConfirmPassword" value="1111aaaa" required>
+                                <div class="error-message" id="regConfirmPasswordError" style="display: none;"></div>
+                            </section>
+                            <section class="form-actions">
+                                <button class="flip-card__btn" type="submit">注册</button>
+                            </section>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/login_register.js"></script>
+
+</html>

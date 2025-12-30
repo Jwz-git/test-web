@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI网站导航 - 首页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item active" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
+                <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
+                <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
+                <li id="userNav" style="float:right;"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-container">
+            <!-- <button class="btn" onclick="clearLocalStorage()">清空localStorage</button> -->
+            <h1>AI网站导航搜索</h1>
+            <input type="text" placeholder="搜索AI相关网站..." onkeydown="if(event.keyCode==13) searchSites()">
+            <button class="btn" onclick="searchSites()">搜索</button>
+        </section>
+
+        <section class="content">
+            <article class="news-header">
+                <h2>最新AI资讯</h2>
+                <button class="btn refresh-btn" onclick="refreshNews()">换一换</button>
+            </article>
+            <div class="news-container" id="newsContainer"></div>
+        </section>
+
+        <!-- 文档链接区域 -->
+        <div class="docs-container">
+            <h2>项目文档</h2>
+            <div class="docs-links">
+                <ul>
+                    <li><a href="doc/app.md" class="doc-link">app.md</a></li>
+                    <li><a href="doc/css.md" class="doc-link">css.md</a></li>
+                    <li><a href="doc/html.md" class="doc-link">html.md</a></li>
+                    <li><a href="doc/javascript.md" class="doc-link">javascript.md</a></li>
+                    <li><a href="doc/plan.md" class="doc-link">plan.md</a></li>
+                    <li><a href="doc/other.md" class="doc-link">other.md</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI网站导航 - 表单页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
+                <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
+                <li class="nav-item active" onclick="window.location.href='form.html'">添加网站详情</li>
+                <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
+                <li id="userNav" style="float:right;"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="form-title" id="formTitle">添加AI网站信息</h1>
+        <form id="siteForm">
+            <section class="form-group">
+                <label for="siteName">网站名称 <span class="required">*</span></label>
+                <input type="text" id="siteName" placeholder="例如：ChatGPT" value="111" required>
+            </section>
+
+            <section class="form-group">
+                <label for="company">所属公司 <span class="required">*</span></label>
+                <select id="company" required>
+                    <option value="">请选择公司</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="google">Google</option>
+                    <option value="microsoft">Microsoft</option>
+                    <option value="zijietiaodong">字节跳动</option>
+                    <option value="alibaba">阿里巴巴</option>
+                </select>
+            </section>
+
+            <section class="form-group">
+                <label>AI类型 <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="aiType" value="对话式" required> 对话式AI
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="aiType" value="生成式" required> 生成式AI
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="aiType" value="分析式" required> 分析式AI
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="aiType" value="其他" required> 其他
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-group">
+                <label for="description">网站简介 <span class="required">*</span></label>
+                <textarea id="description" rows="4" placeholder="请输入网站的详细介绍..." required>111</textarea>
+            </section>
+
+            <section class="form-group">
+                <label for="url">网站链接 <span class="required">*</span></label>
+                <input type="url" id="url" placeholder="例如：https://www.chatgpt.com" value="https://www.111.com" required>
+            </section>
+
+            <section class="form-group">
+                <label for="icon">网站图标（URL）</label>
+                <input type="url" id="icon" placeholder="请输入图标图片的URL（可选）">
+            </section>
+
+            <section class="form-group">
+                <label>功能特性</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="features" value="多语言"> 多语言支持
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="features" value="API"> API接口
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="features" value="免费"> 免费使用
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="features" value="移动端"> 移动端支持
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-actions">
+                <button class="btn submit-btn">保存</button>
+                <button class="btn cancel-btn">取消</button>
+            </section>
+        </form>
+    </main>
+
+</body>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/form.js"></script>
+
+</html>

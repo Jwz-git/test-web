@@ -38,7 +38,7 @@ function initializeDefaultSites() {
             siteName: 'ChatGPT',
             company: 'openai',
             aiType: '对话AI',
-            description: 'OpenAI开发的AI模型。',
+            description: 'OpenAI开发的先进语言模型，能够进行自然语言对话、生成文本等多种任务。',
             url: 'https://www.chatgpt.com',
             icon: './images/list/ChatGPT-logo.webp',
             features: [],
@@ -46,49 +46,25 @@ function initializeDefaultSites() {
             createdAt: new Date().toISOString()
         },
         {
-            id: 'google-test-001',
-            siteName: '测试',
+            id: 'gemini-001',
+            siteName: 'Gemini',
             company: 'google',
-            aiType: '···',
-            description: '···',
-            url: '',
-            icon: '',
+            aiType: '多模态AI',
+            description: 'Google开发的多模态AI模型，支持文本、图像、音频、视频等多种输入。',
+            url: 'https://deepmind.google/technologies/gemini/',
+            icon: './images/list/gemini-logo.png',
             features: [],
             launchDate: '',
             createdAt: new Date().toISOString()
         },
         {
-            id: 'microsoft-test-001',
-            siteName: '测试',
-            company: 'microsoft',
-            aiType: '···',
-            description: '···',
-            url: '',
-            icon: '',
-            features: [],
-            launchDate: '',
-            createdAt: new Date().toISOString()
-        },
-        {
-            id: 'zijietiaodong-test-001',
-            siteName: '测试',
-            company: 'zijietiaodong',
-            aiType: '···',
-            description: '···',
-            url: '',
-            icon: '',
-            features: [],
-            launchDate: '',
-            createdAt: new Date().toISOString()
-        },
-        {
-            id: 'alibaba-test-001',
-            siteName: '测试',
-            company: 'alibaba',
-            aiType: '···',
-            description: '···',
-            url: '',
-            icon: '',
+            id: 'claude-001',
+            siteName: 'Claude',
+            company: 'anthropic',
+            aiType: '对话AI',
+            description: 'Anthropic开发的AI助手，注重安全性和可解释性。',
+            url: 'https://www.anthropic.com/',
+            icon: './images/list/claude-logo.png',
             features: [],
             launchDate: '',
             createdAt: new Date().toISOString()
@@ -116,7 +92,7 @@ function renderSites(sites) {
     }, {});
     
     // 生成公司部分和网站卡片
-    const companies = ['openai', 'google', 'microsoft', 'zijietiaodong', 'alibaba'];
+    const companies = ['openai', 'google', 'anthropic', 'microsoft', 'zijietiaodong', 'alibaba'];
     
     companies.forEach(companyId => {
         const companySection = document.getElementById(companyId);
@@ -148,7 +124,7 @@ function createWebCard(site) {
             <h3>${site.siteName}</h3>
             <div class="meta">分类: ${site.aiType}</div>
             <p>${site.description}</p>
-            <button class="btn-to-detail" onclick="window.location.href='web_detail.html'">网站介绍</button>
+            <button class="btn-to-detail" onclick="window.location.href='web_detail.html?service=${site.siteName.toLowerCase()}'">网站介绍</button>
             <button class="btn-to-web" onclick="window.open('${site.url}')">访问网站</button>
         </div>
         <div class="card-actions">
@@ -297,8 +273,7 @@ function saveEdit(button) {
     }
 
     // 更新详情页链接
-    const detailBtn = content.querySelector('.btn-to-detail');
-    const detailUrl = detailBtn ? detailBtn.getAttribute('onclick').match(/"(.*?)"/)[1] : `detail-${title}.html`;
+    const detailUrl = `web_detail.html?service=${title.toLowerCase()}`;
 
     // 更新访问链接
     const webBtn = content.querySelector('.btn-to-web');

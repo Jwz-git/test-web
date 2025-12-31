@@ -51,7 +51,7 @@ function getDetailPageTemplate(siteData) {
                         <pre id="apiResponse" style="color:#9b8e8e;font-size:22px;">等待请求...</pre>
                     </article>
 
-                    <button class="btn" onclick="callChatGPTAPI()">发送请求</button>
+                    <button class="btn" onclick="callAPI()">发送请求</button>
                 </section>
             </section>
         </main>

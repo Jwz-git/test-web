@@ -1,3 +1,15 @@
+// 汉堡菜单切换
+function toggleNavbar() {
+    try {
+        const navbarMenu = document.getElementById('navbarMenu');
+        if (navbarMenu) {
+            navbarMenu.classList.toggle('active');
+        }
+    } catch (error) {
+        console.error('Error in toggleNavbar:', error);
+    }
+}
+
 // 通用导航栏更新
 function updateUserNav() {
     try {
@@ -8,15 +20,15 @@ function updateUserNav() {
         const currentPage = window.location.pathname.split('/').pop();
         
         if (currentUser) {
-            userNav.innerHTML = `
-                <span style="color:white; margin-right:20px;">欢迎, ${currentUser.username}</span>
-                <div class="nav-item" onclick="logout()">登出</div>
-            `;
+            // 已登录状态，显示欢迎信息和登出链接
+            userNav.innerHTML = `<span>欢迎, ${currentUser.username}</span>`;
+            userNav.onclick = logout;
         } else {
+            // 未登录状态，显示登录/注册链接
             const isLoginPage = currentPage === 'login_register.html';
-            userNav.innerHTML = `
-                <div class="nav-item ${isLoginPage ? 'active' : ''}" onclick="window.location.href='login_register.html'">登录/注册</div>
-            `;
+            userNav.className = `nav-item ${isLoginPage ? 'active' : ''}`;
+            userNav.onclick = () => window.location.href = 'login_register.html';
+            userNav.innerHTML = '登录/注册';
         }
     } catch (error) {
         // 忽略任何错误，避免影响页面渲染

@@ -12,13 +12,23 @@
 <body>
     <header>
         <nav class="navbar">
-            <ul>
-                <li class="nav-item" onclick="window.location.href='index.html'">首页</li>
-                <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
-                <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
-                <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
-                <li id="userNav" style="float:right;"></li>
-            </ul>
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <span>网站导航</span>
+                </div>
+                <div class="navbar-toggle" onclick="toggleNavbar()">
+                    <span class="toggle-icon"></span>
+                    <span class="toggle-icon"></span>
+                    <span class="toggle-icon"></span>
+                </div>
+                <ul id="navbarMenu" class="navbar-menu">
+                    <li class="nav-item active" onclick="window.location.href='index.html'">首页</li>
+                    <li class="nav-item" onclick="window.location.href='list.html'">网站列表</li>
+                    <li class="nav-item" onclick="window.location.href='form.html'">添加网站详情</li>
+                    <li class="nav-item" onclick="window.location.href='help.html'">帮助</li>
+                    <li id="userNav" class="nav-item user-nav"></li>
+                </ul>
+            </div>
         </nav>
     </header>
 

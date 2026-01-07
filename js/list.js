@@ -1,7 +1,7 @@
 // 从服务器或localStorage加载网站数据并生成卡片
 function loadSites() {
     // 模拟API URL
-    const apiUrl = 'https://api.example.com/sites';
+    const apiUrl = 'https://www.example.com/';
     
     // 使用AJAX GET请求从服务器获取数据
     get(apiUrl,
@@ -118,6 +118,7 @@ function renderSites(sites) {
 function createWebCard(site) {
     const card = document.createElement('div');
     card.className = 'web-card';
+    card.setAttribute('data-site-id', site.id); // 添加网站ID数据属性
     card.innerHTML = `
         <img class="image" src="${site.icon}" alt="${site.siteName}">
         <div class="web-card-content">
@@ -255,6 +256,7 @@ function editCard(button) {
 function saveEdit(button) {
     const card = button.closest('.web-card');
     const content = card.querySelector('.web-card-content');
+    const siteId = card.getAttribute('data-site-id');
 
     // 获取编辑后的值
     const title = content.querySelector('[data-field="title"]').value.trim();
@@ -287,6 +289,24 @@ function saveEdit(button) {
         <button class="btn-to-detail" onclick="window.location.href='${detailUrl}'">网站介绍</button>
         <button class="btn-to-web" onclick="window.open('${webUrl}')">访问网站</button>
     `;
+
+    // 更新localStorage
+    if (siteId) {
+        const sites = JSON.parse(localStorage.getItem('sites') || '[]');
+        const updatedSites = sites.map(site => {
+            if (site.id === siteId) {
+                // 更新网站信息
+                return {
+                    ...site,
+                    siteName: title,
+                    aiType: category,
+                    description: description
+                };
+            }
+            return site;
+        });
+        localStorage.setItem('sites', JSON.stringify(updatedSites));
+    }
 
     // 显示保存成功提示
     const notification = document.createElement('div');

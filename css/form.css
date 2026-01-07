@@ -102,3 +102,21 @@ body {
     opacity: 0.9;
 }
 
+.error-message {
+    color: #e53e3e;
+    font-size: 14px;
+    margin-top: 4px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.1);
+}
+
